@@ -1,4 +1,6 @@
 // TEMPORARY QA route for the product page (deleted before hand-off).
+import { notFound } from "next/navigation"
+
 import { BuyBox } from "@/components/product/buy-box"
 import { ProductGallery } from "@/components/product/product-gallery"
 import { PurchaseProvider } from "@/components/product/purchase-context"
@@ -30,12 +32,15 @@ function Block({ id, product, from, upgrades = 0, sticky = false }: { id: string
 }
 
 export default function GalleryLab() {
-  const car = getProduct("porsche-962c-night-shift-12")!
-  const motor = getProduct("slot-it-v12-4-21500-motor")!
+  const car = getProduct("porsche-962c-night-shift-12")
+  if (!car) notFound()
+
+  // Keep the sold-out scenario usable when the sample motor leaves the catalog.
+  const soldOutProduct = getProduct("slot-it-v12-4-21500-motor") ?? car
   return (
     <div className="pb-40">
       <Block id="car" product={car} upgrades={2} sticky />
-      <Block id="soldout" product={{ ...motor, stock: 0 }} />
+      <Block id="soldout" product={{ ...soldOutProduct, stock: 0 }} />
       <Block id="preorder" from={car.slug} product={{ ...car, slug: "lab-preorder", stock: 3, isNew: false, compareAtPrice: 109.99, preorder: { ships: "2026-12-04" } }} upgrades={2} />
     </div>
   )
