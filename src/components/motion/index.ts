@@ -1,0 +1,7 @@
+export { CountUp } from "@/components/motion/count-up"
+export { EASE_IN_OUT_EXPO, EASE_OUT_EXPO, EASE_OUT_QUINT, SPRING_SNAPPY, SPRING_SOFT } from "@/components/motion/ease"
+export { Magnetic } from "@/components/motion/magnetic"
+export { Marquee } from "@/components/motion/marquee"
+export { Parallax } from "@/components/motion/parallax"
+export { Reveal, RevealGroup, RevealItem } from "@/components/motion/reveal"
+export { RevealText } from "@/components/motion/reveal-text"
