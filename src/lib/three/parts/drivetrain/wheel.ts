@@ -198,21 +198,22 @@ function face(style: Style, d: HubDims, mat: THREE.Material, flat: THREE.Materia
   } else {
     // Wire wheel: laced steel spokes between a hub barrel and the rim.
     const barrelR = d.bossR + 0.25
+    const barrelProfile: V2[] = [
+      [d.boreR, d.faceY + 0.6],
+      [barrelR - 0.4, d.faceY + 0.6],
+      [barrelR, d.faceY],
+      [barrelR + 0.55, d.faceY - 0.25],
+      [barrelR + 0.55, d.faceY - 0.75],
+      [barrelR, d.faceY - 1.0],
+      [barrelR, -d.W / 2 + 1.4],
+      [barrelR + 0.45, -d.W / 2 + 1.1],
+      [barrelR + 0.45, -d.W / 2 + 0.6],
+      [barrelR, -d.W / 2 + 0.4],
+      [d.boreR, -d.W / 2 + 0.4],
+    ]
     const barrel = lathe(
       fillet(
-        [
-          [d.boreR, d.faceY + 0.6],
-          [barrelR - 0.4, d.faceY + 0.6],
-          [barrelR, d.faceY],
-          [barrelR + 0.55, d.faceY - 0.25],
-          [barrelR + 0.55, d.faceY - 0.75],
-          [barrelR, d.faceY - 1.0],
-          [barrelR, -d.W / 2 + 1.4],
-          [barrelR + 0.45, -d.W / 2 + 1.1],
-          [barrelR + 0.45, -d.W / 2 + 0.6],
-          [barrelR, -d.W / 2 + 0.4],
-          [d.boreR, -d.W / 2 + 0.4],
-        ].reverse(),
+        barrelProfile.reverse(),
         [0, 0.12, 0.15, 0.15, 0.12, 0.12, 0.15, 0.15, 0.2, 0.15, 0]
       ).reverse(),
       { seg }
