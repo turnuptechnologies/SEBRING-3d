@@ -1,7 +1,8 @@
-import { ViewTransition, type ReactNode } from "react"
+import type { ReactNode } from "react"
 
-import { CartSheet } from "@/components/cart/cart-sheet"
+import { LazyCartSheet } from "@/components/cart/lazy-cart-sheet"
 import { SiteFooter } from "@/components/layout/site-footer"
+import { Preloader } from "@/components/layout/preloader"
 import { SiteHeader } from "@/components/layout/site-header"
 import { AppProviders } from "@/components/providers/app-providers"
 
@@ -9,6 +10,7 @@ import { AppProviders } from "@/components/providers/app-providers"
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
     <AppProviders>
+      <Preloader />
       <a
         href="#main-content"
         className="sr-only z-[100] rounded-sm bg-volt px-4 py-3 font-semibold text-carbon-900 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
@@ -17,11 +19,10 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </a>
       <SiteHeader />
       <main id="main-content" className="relative min-h-[60svh] overflow-x-clip">
-        {/* Route changes crossfade + rise; the header and footer stay put. */}
-        <ViewTransition default="page">{children}</ViewTransition>
+        {children}
       </main>
       <SiteFooter />
-      <CartSheet />
+      <LazyCartSheet />
       <div className="grain" aria-hidden="true" />
     </AppProviders>
   )

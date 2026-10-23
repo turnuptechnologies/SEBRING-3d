@@ -31,13 +31,13 @@ export function RacewayTeaser() {
           </p>
           <dl className="mt-10 grid gap-5">
             {facts.map((f) => (
-              <div key={f.label} className="flex gap-4 border-l-2 border-volt/70 pl-5">
-                <f.icon className="mt-1 size-4 shrink-0 text-volt" aria-hidden="true" />
-                <div>
-                  <dt className="label-mono text-muted-foreground">{f.label}</dt>
-                  <dd className="mt-1.5 font-semiwide text-lg font-bold">{f.value}</dd>
-                  <dd className="text-sm text-muted-foreground">{f.note}</dd>
-                </div>
+              <div key={f.label} className="relative border-l-2 border-volt/70 pl-14">
+                <dt className="label-mono text-muted-foreground">
+                  <f.icon className="absolute top-0.5 left-5 size-4 text-volt" aria-hidden="true" />
+                  {f.label}
+                </dt>
+                <dd className="mt-1.5 font-semiwide text-lg font-bold">{f.value}</dd>
+                <dd className="text-sm text-muted-foreground">{f.note}</dd>
               </div>
             ))}
           </dl>

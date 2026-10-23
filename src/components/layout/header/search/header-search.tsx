@@ -2,13 +2,16 @@
 
 import { AnimatePresence, motion } from "framer-motion"
 import { Search, X } from "lucide-react"
+import dynamic from "next/dynamic"
 import { useEffect, useId, useRef, useSyncExternalStore, type ReactNode } from "react"
 
 import { EASE_OUT_EXPO } from "@/components/motion/ease"
 import { useHeader } from "@/components/layout/header/header-context"
-import { SearchPanel } from "@/components/layout/header/search/search-panel"
 import { useSearchBox } from "@/components/layout/header/search/use-search-box"
 import { cn } from "@/lib/utils"
+
+/** Results panel code loads when the search first opens. */
+const SearchPanel = dynamic(() => import("@/components/layout/header/search/search-panel").then((m) => m.SearchPanel), { ssr: false })
 
 export const SEARCH_PLACEHOLDER = "Search cars, parts, brands or SKU"
 

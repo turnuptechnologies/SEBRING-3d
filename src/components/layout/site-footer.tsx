@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Logo } from "@/components/brand/logo"
 import { BackToTop } from "@/components/layout/footer/back-to-top"
 import { FooterWordmark } from "@/components/layout/footer/footer-wordmark"
-import { NewsletterForm } from "@/components/layout/footer/newsletter-form"
+import { LazyNewsletter } from "@/components/layout/footer/lazy-newsletter"
 import { StoreStatus } from "@/components/layout/footer/store-status"
 import { Reveal, RevealGroup, RevealItem } from "@/components/motion"
 import { SUBCATEGORY_ICONS } from "@/components/site/category-icon"
@@ -80,7 +80,7 @@ export function SiteFooter() {
           {latest && <LatestArrival product={latest} />}
         </Reveal>
         <Reveal className="min-w-0 lg:col-span-5 lg:col-start-8 lg:self-end" delay={0.08} blur={false}>
-          <NewsletterForm />
+          <LazyNewsletter />
         </Reveal>
       </section>
 

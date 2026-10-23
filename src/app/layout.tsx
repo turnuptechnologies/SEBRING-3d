@@ -8,7 +8,6 @@ const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
   axes: ["wdth"],
-  style: ["normal", "italic"],
   display: "swap",
 })
 
@@ -66,6 +65,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${archivo.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Skip the intro preloader before first paint once it has played this session. */}
+        <script dangerouslySetInnerHTML={{ __html: `try{if(sessionStorage.getItem("sb-intro"))document.documentElement.dataset.intro="done"}catch(e){}` }} />
+      </head>
       <body className="min-h-full bg-background text-foreground">{children}</body>
     </html>
   )

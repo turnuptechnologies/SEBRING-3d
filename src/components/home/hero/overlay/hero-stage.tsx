@@ -4,7 +4,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion"
 import { useLenis } from "lenis/react"
 import { ArrowRight, Pause, Play } from "lucide-react"
 import Link from "next/link"
-import { useId, useRef, useState, useSyncExternalStore, type ReactNode } from "react"
+import { useEffect, useId, useRef, useState, useSyncExternalStore, type ReactNode } from "react"
 
 import { HeroSceneSlot } from "@/components/home/hero/overlay/hero-scene-slot"
 import { HeroWordmark } from "@/components/home/hero/overlay/hero-wordmark"
@@ -45,10 +45,53 @@ export function HeroStage({ cars, poster, hasPoster }: HeroStageProps) {
   const [keepScene, setKeepScene] = useState(false)
   const [sceneReady, setSceneReady] = useState(false)
 
-  const motionOn = choice ?? !reduce
+  // WebGL waits for page load + an idle moment so it never competes with first paint.
+  // Data-saver connections and low-memory devices keep the rendered poster unless the shopper presses play.
+  const [deferred, setDeferred] = useState(false)
+  const [lite, setLite] = useState(false)
+  useEffect(() => {
+    const nav = navigator as Navigator & { connection?: { saveData?: boolean }; deviceMemory?: number }
+    const isLite = Boolean(nav.connection?.saveData) || (nav.deviceMemory !== undefined && nav.deviceMemory <= 2)
+    let idle = 0
+    let timer = 0
+    const go = () => {
+      const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number }
+      if (w.requestIdleCallback) idle = w.requestIdleCallback(() => {
+        setLite(isLite)
+        setDeferred(true)
+      }, { timeout: 1800 })
+      else timer = window.setTimeout(() => {
+        setLite(isLite)
+        setDeferred(true)
+      }, 500)
+    }
+    // Start on the first interaction (or 3.5s after load): the poster — a frame of the same
+    // scene — holds the screen meanwhile, so the three.js parse never blocks first input.
+    const EVENTS = ["pointermove", "pointerdown", "touchstart", "keydown", "wheel", "scroll"] as const
+    let started = false
+    const start = () => {
+      if (started) return
+      started = true
+      EVENTS.forEach((e) => window.removeEventListener(e, start))
+      go()
+    }
+    EVENTS.forEach((e) => window.addEventListener(e, start, { once: true, passive: true }))
+    const arm = () => (timer = window.setTimeout(start, 3500))
+    if (document.readyState === "complete") arm()
+    else window.addEventListener("load", arm, { once: true })
+    return () => {
+      EVENTS.forEach((e) => window.removeEventListener(e, start))
+      window.removeEventListener("load", arm)
+      window.clearTimeout(timer)
+      const w = window as Window & { cancelIdleCallback?: (id: number) => void }
+      if (idle) w.cancelIdleCallback?.(idle)
+    }
+  }, [])
+
+  const motionOn = choice ?? (!reduce && !lite)
   const carArts = cars.map((c) => c.art).filter((a): a is CarArt => a.kind === "car")
   // Reduced motion: the poster is the still; without one, the scene renders its own composed still.
-  const showScene = carArts.length > 0 && (motionOn || keepScene || (reduce && !hasPoster))
+  const showScene = carArts.length > 0 && (keepScene || (deferred && (motionOn || (reduce && !hasPoster))))
   // The scene honours prefers-reduced-motion with a still, so the control only exists where it can animate.
   const canToggle = carArts.length > 0 && !reduce
 
@@ -90,7 +133,10 @@ export function HeroStage({ cars, poster, hasPoster }: HeroStageProps) {
             cars={carArts}
             paused={!motionOn || !inView}
             onActiveCarChange={setActive}
-            onReady={() => setSceneReady(true)}
+            onReady={() => {
+              setSceneReady(true)
+              window.dispatchEvent(new Event("sebring:scene-ready"))
+            }}
             quality="auto"
             className="absolute inset-0"
           />

@@ -66,7 +66,7 @@ export function NowOnTrack({ cars, active, control, className }: NowOnTrackProps
   const justAdded = added === car.slug
   const preorder = isPreorder(car)
   const image = primaryImage(car)
-  const buyLabel = `${preorder ? "Pre-order" : "Buy"} ${car.name} now`
+  const buyLabel = `${preorder ? "Pre-order" : "Buy now"}: ${car.name}`
 
   return (
     <aside

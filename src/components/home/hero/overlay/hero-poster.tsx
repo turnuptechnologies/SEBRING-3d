@@ -16,7 +16,7 @@ export interface HeroPosterSources {
 export function HeroPoster({ sources }: { sources: HeroPosterSources | null }) {
   if (!sources) return <HeroBackdrop />
 
-  const common = { alt: "", fill: true, sizes: "100vw", quality: 80 } as const
+  const common = { alt: "", fill: true, sizes: "100vw", quality: 70 } as const
   const {
     props: { srcSet: desktop },
   } = getImageProps({ ...common, src: sources.desktop })
@@ -26,6 +26,9 @@ export function HeroPoster({ sources }: { sources: HeroPosterSources | null }) {
 
   return (
     <div aria-hidden="true" className="absolute inset-0 bg-carbon-950">
+      {/* Preload the art-directed poster (the home LCP) ahead of scripts; React hoists these into <head>. */}
+      <link rel="preload" as="image" imageSrcSet={desktop} imageSizes="100vw" media="(min-width: 768px)" fetchPriority="high" />
+      <link rel="preload" as="image" imageSrcSet={mobile} imageSizes="100vw" media="(max-width: 767.98px)" fetchPriority="high" />
       <picture>
         <source media="(min-width: 768px)" srcSet={desktop} sizes="100vw" />
         <source media="(max-width: 767.98px)" srcSet={mobile} sizes="100vw" />

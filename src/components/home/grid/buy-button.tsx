@@ -34,7 +34,7 @@ export function BuyButton({ slug, name, preorder = false, size = "default", clas
   }
 
   return (
-    <Button size={size} onClick={onClick} aria-label={`${preorder ? "Pre-order" : "Buy"} ${name} now`} className={cn("relative z-10", className)}>
+    <Button size={size} onClick={onClick} aria-label={`${preorder ? "Pre-order" : "Buy now"}: ${name}`} className={cn("relative z-10", className)}>
       {added ? <Check /> : <ShoppingBag />}
       {added ? "Added" : preorder ? "Pre-order" : "Buy now"}
     </Button>

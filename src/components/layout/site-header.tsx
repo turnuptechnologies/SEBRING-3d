@@ -6,10 +6,9 @@ import { HeaderFrame } from "@/components/layout/header/header-frame"
 import { LogoLink } from "@/components/layout/header/logo-link"
 import { MegaNav } from "@/components/layout/header/mega-nav"
 import { MEGA_PANELS } from "@/components/layout/header/mega-panels"
-import { MobileMenu } from "@/components/layout/header/mobile-menu"
+import { LazyMobileOverlays } from "@/components/layout/header/lazy-overlays"
 import { menuTotal, type MenuKey } from "@/components/layout/header/nav-data"
 import { HeaderSearch } from "@/components/layout/header/search/header-search"
-import { MobileSearch } from "@/components/layout/header/search/mobile-search"
 import { primaryNav, secondaryNav } from "@/lib/site"
 
 /**
@@ -34,12 +33,7 @@ export function SiteHeader() {
       search={<HeaderSearch />}
       actions={<HeaderActions />}
       nav={<MegaNav items={items} panels={panels} links={secondaryNav.filter((l) => l.href === "/brands")} raceway={raceway} />}
-      overlays={
-        <>
-          <MobileMenu />
-          <MobileSearch />
-        </>
-      }
+      overlays={<LazyMobileOverlays />}
     />
   )
 }

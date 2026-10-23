@@ -121,7 +121,7 @@ export function ProductCard({ product, sizes = "(min-width: 1280px) 22vw, (min-w
       <div className="flex flex-1 flex-col gap-2.5 p-4 sm:p-5">
         <div className="flex items-center justify-between gap-3 label-mono text-muted-foreground">
           <span className="truncate">{brandName(product.brand)}</span>
-          <span className="shrink-0 text-foreground/50">{formatScales(product.scales)}</span>
+          <span className="shrink-0">{formatScales(product.scales)}</span>
         </div>
 
         <h3 className="font-semiwide text-[0.98rem] leading-snug font-semibold tracking-[-0.01em] text-balance">
@@ -140,7 +140,7 @@ export function ProductCard({ product, sizes = "(min-width: 1280px) 22vw, (min-w
         <div className="mt-auto flex items-end justify-between gap-3 pt-2">
           <Price price={product.price} compareAt={product.compareAtPrice} />
           {inStock ? (
-            <Button size="sm" onClick={onBuy} className="relative z-10" aria-label={`Buy ${product.name} now`}>
+            <Button size="sm" onClick={onBuy} className="relative z-10" aria-label={`Buy now: ${product.name}`}>
               {justAdded ? <Check /> : <ShoppingBag />}
               {justAdded ? "Added" : "Buy now"}
             </Button>

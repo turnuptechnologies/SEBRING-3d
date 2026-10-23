@@ -34,7 +34,7 @@
   --color-smoke-300: #c9c6cf;
   --color-smoke-400: #a6a3ad;
   --color-smoke-500: #7d7a86;
-  --color-smoke-600: #5c5a65;
+  --color-smoke-600: #84828d;
 
   /* Headlight yellow — the single hero accent. Text on it is always carbon. */
   --color-volt: #ffd23f;
@@ -425,5 +425,69 @@
   ::view-transition-old(*),
   ::view-transition-new(*) {
     animation: none !important;
+  }
+}
+
+/* Preloader ---------------------------------------------------------------- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: var(--color-carbon-950);
+  transition: transform 0.85s var(--ease-in-out-expo), opacity 0.85s ease;
+  /* No-JS / stuck safety net: retire after 3s regardless. */
+  animation: preloader-retire 0.5s ease 3s forwards;
+}
+html[data-intro="done"] #preloader {
+  display: none;
+}
+#preloader[data-phase="out"] {
+  transform: translateY(-100%);
+}
+.preloader-inner {
+  display: grid;
+  justify-items: center;
+  gap: 1.75rem;
+}
+.preloader-lights {
+  display: flex;
+  gap: 0.75rem;
+}
+.preloader-lights span {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background: #2a0d0b;
+  box-shadow: inset 0 0 0 1px rgb(255 75 58 / 0.25);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+.preloader-lights span[data-on] {
+  background: var(--color-signal);
+  box-shadow: 0 0 18px 2px rgb(255 75 58 / 0.65), inset 0 0 0 1px rgb(255 255 255 / 0.25);
+}
+.preloader-label {
+  display: flex;
+  gap: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-smoke-400);
+}
+@keyframes preloader-retire {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #preloader {
+    transition: opacity 0.15s ease;
+  }
+  #preloader[data-phase="out"] {
+    transform: none;
+    opacity: 0;
   }
 }
