@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
 import { create } from "zustand"
 import { createJSONStorage, persist } from "zustand/middleware"
 
@@ -130,17 +130,12 @@ export function hydrateStores(rehydrators: Array<() => Promise<void> | void>) {
   })
 }
 
-/** False during SSR and the first client render; true once localStorage state is loaded. */
+/** False during SSR and hydration; true once localStorage state is loaded. */
 export function useHydrated() {
-  const [ready, setReady] = useState(hydrated)
-  useEffect(() => {
-    if (hydrated) {
-      setReady(true)
-      return
-    }
-    const l = () => setReady(true)
-    listeners.add(l)
-    return () => void listeners.delete(l)
-  }, [])
-  return ready
+  return useSyncExternalStore(subscribeHydration, () => hydrated, () => false)
+}
+
+function subscribeHydration(cb: () => void) {
+  listeners.add(cb)
+  return () => void listeners.delete(cb)
 }

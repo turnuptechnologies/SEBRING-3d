@@ -16,7 +16,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         Skip to content
       </a>
       <SiteHeader />
-      <main id="main-content" className="relative min-h-[60svh]">
+      <main id="main-content" className="relative min-h-[60svh] overflow-x-clip">
         {/* Route changes crossfade + rise; the header and footer stay put. */}
         <ViewTransition default="page">{children}</ViewTransition>
       </main>

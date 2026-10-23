@@ -8,6 +8,9 @@ import { buildCrownGear } from "./crown-gear"
 import { buildMotor } from "./motor"
 import { buildPinion } from "./pinion"
 import { buildTire } from "./tire"
+import { buildWheel } from "./wheel"
+import { buildMagnet } from "./magnet"
+import { buildAxleSet } from "./axle-set"
 import { turnedAlu } from "./surfaces"
 
 type Builder = (art: PartArt, ctx: BuildCtx) => Built
@@ -17,6 +20,9 @@ const BUILDERS: Partial<Record<PartModel, Builder>> = {
   pinion: buildPinion,
   "crown-gear": buildCrownGear,
   tire: buildTire,
+  wheel: buildWheel,
+  magnet: buildMagnet,
+  "axle-set": buildAxleSet,
 }
 
 function fallback(art: PartArt): Built {

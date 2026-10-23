@@ -1,1 +1,328 @@
-{ "items": {}, "scenes": [] }
+{
+  "items": {
+    "porsche-962c-night-shift-12": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "chevrolet-corvette-z06-gt3r-searchlight-17": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "ferrari-488-gt3-ember-51": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "porsche-911-gt3-r-midnight-91": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "bmw-m4-gt3-blue-hour-1": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "mercedes-amg-gt3-silver-arrow-4": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "aston-martin-vantage-gte-racing-green-97": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "audi-r8-lms-pit-lane-8-124": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "ferrari-488-go-rosso-11-143": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "toyota-gt-one-red-line-3": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "peugeot-905-tricolour-1": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "cadillac-v-series-r-volt-31": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "jaguar-xjr-9-purple-haze-60": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "sauber-c9-silver-61": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "porsche-956-navy-7-124": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "mclaren-f1-gtr-papaya-59": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "ford-mustang-gt3-copperhead-76": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "chevrolet-camaro-gt4r-thunder-24-124": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "dodge-viper-gts-r-snake-91": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "bmw-m4-dtm-night-stage-6": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "audi-rs5-dtm-grid-33-143": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "porsche-911-rsr-white-kit": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "group-c-prototype-builder-kit": [
+      "hero",
+      "side",
+      "rear",
+      "top"
+    ],
+    "slot-it-v12-4-21500-boxer-motor": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "nsr-king-21400-long-can-motor": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sloting-plus-25k-flat-can-motor": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "koford-1-24-long-can-motor": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "slot-it-brass-pinion-11t": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "nsr-anglewinder-crown-27t": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sloting-plus-spur-gear-30t": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "ortmann-rubber-tires-20x10": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "paul-gage-urethane-tires-21x11": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "slot-it-silicone-tires-19x10": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sloting-plus-spoked-wheels-17x10": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "nsr-turbofan-wheels-17x10": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "slot-it-bar-traction-magnet": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "nsr-disc-magnets-10mm": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "slot-it-axle-bushing-kit-3-32": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "koford-1-8-axle-kit-124": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-silicone-lead-wire": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-tire-truer": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-hex-driver-set": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-precision-oil": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "parma-turbo-45-ohm-controller": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "ds-electronics-programmable-controller": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "scalextric-sport-plunger-controller": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "carrera-digital-132-wireless-controller": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-bench-power-supply": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "carrera-evolution-power-pack": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-alligator-clip-set": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "carrera-evolution-night-endurance-set": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "carrera-digital-132-championship-set": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "carrera-go-grand-prix-set-143": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "carrera-evolution-straights-pair": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "carrera-evolution-curves-1-30": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-routed-straight": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-lap-counter": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "sebring-garage-timing-bridge": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "guardrail-barrier-pack": [
+      "hero",
+      "detail",
+      "alt"
+    ],
+    "tire-wall-barrier-set": [
+      "hero",
+      "detail",
+      "alt"
+    ]
+  },
+  "scenes": []
+}

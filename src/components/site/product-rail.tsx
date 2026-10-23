@@ -39,9 +39,10 @@ export function ProductRail({ products, header, label, className, itemClassName,
 
   useEffect(() => {
     if (!api) return
-    sync(api)
+    const raf = requestAnimationFrame(() => sync(api))
     api.on("scroll", sync).on("reInit", sync).on("select", sync)
     return () => {
+      cancelAnimationFrame(raf)
       api.off("scroll", sync).off("reInit", sync).off("select", sync)
     }
   }, [api, sync])

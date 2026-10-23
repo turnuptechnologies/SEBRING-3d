@@ -19,7 +19,6 @@ const TYPES: { slug: SubcategorySlug; label: string }[] = [
   { slug: "magnets", label: "Magnets" },
   { slug: "axles-bushings", label: "Axles" },
   { slug: "guides-braid", label: "Guides & braid" },
-  { slug: "chassis-pods", label: "Chassis" },
   { slug: "tools-care", label: "Tools" },
 ]
 

@@ -1,4 +1,5 @@
-import type { BrandSlug, Product } from "@/lib/catalog/types"
+import { extendedProducts } from "@/lib/catalog/products-extended"
+import type { Product } from "@/lib/catalog/types"
 
 /**
  * SAMPLE CATALOG — realistic demo inventory so every page, filter and the
@@ -10,14 +11,8 @@ import type { BrandSlug, Product } from "@/lib/catalog/types"
  * homepage hero cars. Validate edits at /studio/catalog-check.
  */
 
-/** 1:32 racing platforms that share 3/32 in axles, boxer/short-can mounts and flag guides. */
-const RACING_132: BrandSlug[] = ["slot-it", "nsr", "scaleauto", "sideways", "thunderslot", "policar", "sebring-garage"]
-/** 1:24 raceway platforms — brass chassis builders plus BRM and Scaleauto. */
-const RACING_124: BrandSlug[] = ["brm", "scaleauto", "parma", "koford", "jk-products"]
-/** Every brand that sells cars — for universal tools, care and power. */
-const ALL_CAR_BRANDS: BrandSlug[] = ["carrera", "scalextric", ...RACING_132, "brm"]
 
-export const products: Product[] = [
+const core: Product[] = [
   /* -------------------------------------------------------------------------
    * Slot cars — hero cars first
    * ----------------------------------------------------------------------- */
@@ -99,157 +94,6 @@ export const products: Product[] = [
     },
     views: ["hero", "side", "rear", "top"],
   },
-  {
-    slug: "dodge-challenger-ta-copperhead-76",
-    sku: "SB-SC-1004",
-    mpn: "20027981",
-    name: "Dodge Challenger T/A ‘Copperhead’ No. 76 – Mid-Ohio 1970",
-    brand: "carrera",
-    category: "slot-cars",
-    subcategory: "muscle-trans-am",
-    scales: ["1:32"],
-    price: 54.99,
-    stock: 18,
-    releasedAt: "2026-05-14",
-    isFeatured: true,
-    attributes: { build: "RTR", operation: "Digital-ready", motorLayout: "Inline", canType: "Short can", trackSystem: "Carrera Evolution" },
-    tags: ["dodge", "challenger", "t/a", "ta", "trans am", "trans-am", "muscle", "pony car", "mopar", "v8", "1970", "mid-ohio", "carrera", "carrera evolution", "evo", "analog", "20027981", "rtr", "1/32", "132", "copperhead", "copper", "orange"],
-    summary: "Copper-and-carbon Challenger T/A with Carrera Evolution’s bulletproof inline drive — loud, wide and easy to drive fast.",
-    description: [
-      "The 1970 Trans-Am season was the golden age of pony-car racing, and the Challenger T/A was Mopar’s answer: scooped hood, side-exit exhausts and a ducktail spoiler. Copperhead wraps it in burnished copper with carbon twin stripes.",
-      "Carrera’s Evolution chassis is built for home tracks — a smooth inline motor, sprung guide and a strong magnet keep newer drivers on the road and let experienced ones lean on it.",
-      "It runs straight out of the box on Carrera Evolution track and converts to Digital 132 with a plug-in decoder chip.",
-    ],
-    highlights: ["Inline drive with strong magnet", "Sprung guide, quick-change braid", "Digital 132 chip-ready", "Side-exit exhausts & detailed cockpit"],
-    specs: [
-      { label: "Scale", value: "1:32" },
-      { label: "Track system", value: "Carrera Evolution (analog)" },
-      { label: "Motor", value: "Short can, 18,000 rpm" },
-      { label: "Drivetrain", value: "Inline" },
-      { label: "Digital", value: "Chip-ready (Digital 132)" },
-      { label: "Length", value: "151 mm" },
-    ],
-    vehicle: { make: "Dodge", model: "Challenger T/A", year: 1970, series: "Trans-Am", era: "1970s", readyToRun: true, digital: false },
-    art: {
-      kind: "car",
-      body: "muscle",
-      livery: { base: "#d08a5c", secondary: "#0b0b0f", accent: "#f3efe6", pattern: "center-stripes", number: 76, numberPlate: "roundel", glass: "smoke", rims: "silver", headlights: "white" },
-    },
-    views: ["hero", "side", "rear", "top"],
-  },
-  {
-    slug: "ford-gt40-mk2-sebring-tribute-3",
-    sku: "SB-SC-1002",
-    mpn: "C4518",
-    name: "Ford GT40 Mk II ‘Sebring Tribute’ No. 3 – Sebring 12H 1966",
-    brand: "scalextric",
-    category: "slot-cars",
-    subcategory: "classics",
-    scales: ["1:32"],
-    price: 74.99,
-    compareAtPrice: 89.99,
-    stock: 4,
-    releasedAt: "2026-06-02",
-    isFeatured: true,
-    attributes: { build: "RTR", operation: "Digital-ready", motorLayout: "Inline", canType: "Short can", trackSystem: "Scalextric Sport" },
-    tags: ["ford", "gt40", "gt 40", "mk2", "mk ii", "1966", "classic", "endurance", "sebring", "12 hours", "le mans", "scalextric", "scaley", "c4518", "dpr", "digital plug ready", "rtr", "1/32", "132", "blue"],
-    summary: "Sixties endurance icon in a crisp tribute livery, with Scalextric’s smooth inline drivetrain.",
-    description: [
-      "Long nose, low roof and a big-block V8 bark — the GT40 Mk II is the car that rewrote endurance racing in the 1960s. Our Sebring Tribute livery pairs deep blue with ivory stripes and signal-red roundels.",
-      "Scalextric’s version pairs gorgeous detail with a forgiving inline motor and magnet, ideal for home tracks and club classic classes.",
-      "Digital Plug Ready: fit a Scalextric digital chip and it races on ARC Pro and Digital layouts.",
-    ],
-    highlights: ["Inline motor with magnet", "Detailed cockpit & wire-style wheels", "Digital Plug Ready (DPR)", "Ideal for classic GT classes"],
-    specs: [
-      { label: "Scale", value: "1:32" },
-      { label: "Motor", value: "Short can, 18,000 rpm" },
-      { label: "Drivetrain", value: "Inline" },
-      { label: "Digital", value: "DPR socket" },
-      { label: "Length", value: "130 mm" },
-    ],
-    vehicle: { make: "Ford", model: "GT40 Mk II", year: 1966, series: "Endurance", era: "1960s", readyToRun: true, digital: false },
-    art: {
-      kind: "car",
-      body: "classic",
-      livery: { base: "#1f4fd1", secondary: "#f3efe6", accent: "#ff4b3a", pattern: "center-stripes", number: 3, numberPlate: "roundel", glass: "smoke", rims: "silver", headlights: "white" },
-    },
-    views: ["hero", "side", "rear", "top"],
-  },
-  {
-    slug: "lotus-72d-evergreen-5",
-    sku: "SB-SC-1005",
-    mpn: "CAR07c",
-    name: "Lotus 72D ‘Evergreen’ No. 5 – Race of Champions 1972",
-    brand: "policar",
-    category: "slot-cars",
-    subcategory: "open-wheel",
-    scales: ["1:32"],
-    price: 64.99,
-    stock: 15,
-    releasedAt: "2026-01-29",
-    isFeatured: true,
-    attributes: { build: "RTR", operation: "Analog", motorLayout: "Sidewinder", canType: "Flat can", axle: "3/32 in" },
-    tags: ["lotus", "72", "72d", "formula 1", "formula one", "f1", "grand prix", "gp", "open wheel", "single seater", "cosworth", "dfv", "classic f1", "brands hatch", "policar", "car07c", "sidewinder", "sw", "rtr", "1/32", "132", "evergreen", "green"],
-    summary: "Wedge-nosed Lotus 72D in British green with a headlight-yellow arrow — classic F1 on Policar’s modern running gear.",
-    description: [
-      "The Lotus 72 rewrote Formula 1 with its wedge nose, side radiators and inboard brakes, and stayed competitive for six seasons. Evergreen dresses it in deep British green with a yellow nose arrow — a fictional livery that nods to the marque’s early colours.",
-      "Policar pairs museum-grade detail with a modern sidewinder chassis, flat-can motor and aluminium rear hubs, so it is as quick around a club track as it is good on a shelf.",
-      "Pre-trued tires and a sprung guide make it a great way into classic F1 classes.",
-    ],
-    highlights: ["Sidewinder drive, flat-can motor", "Aluminium rear hubs, pre-trued tires", "Inboard brakes & DFV engine detail", "Club-legal for classic F1 classes"],
-    specs: [
-      { label: "Scale", value: "1:32" },
-      { label: "Motor", value: "Flat can, 20,000 rpm" },
-      { label: "Drivetrain", value: "Sidewinder, 9:27" },
-      { label: "Wheelbase", value: "79 mm" },
-      { label: "Magnet", value: "Optional" },
-      { label: "Weight", value: "66 g" },
-    ],
-    vehicle: { make: "Lotus", model: "72D", year: 1972, series: "Formula 1", era: "1970s", readyToRun: true, digital: false },
-    art: {
-      kind: "car",
-      body: "openwheel",
-      livery: { base: "#0f4d32", secondary: "#ffd23f", accent: "#f3efe6", pattern: "chevron", number: 5, numberPlate: "roundel", glass: "smoke", rims: "bronze", headlights: "white" },
-    },
-    views: ["hero", "side", "rear", "top"],
-  },
-  {
-    slug: "audi-quattro-s1-e2-night-stage-6",
-    sku: "SB-SC-1006",
-    mpn: "C4601",
-    name: "Audi quattro S1 E2 ‘Night Stage’ No. 6 – Rallye Sanremo 1985",
-    brand: "scalextric",
-    category: "slot-cars",
-    subcategory: "rally-touring",
-    scales: ["1:32"],
-    price: 62.99,
-    stock: 14,
-    releasedAt: "2026-04-09",
-    isFeatured: true,
-    attributes: { build: "RTR", operation: "Digital-ready", motorLayout: "Inline", canType: "Short can", trackSystem: "Scalextric Sport" },
-    tags: ["audi", "quattro", "sport quattro", "s1", "e2", "group b", "gr.b", "rally", "rallye", "sanremo", "night stage", "light pod", "lights", "scalextric", "scaley", "c4601", "dpr", "digital plug ready", "rtr", "1/32", "132", "black", "yellow"],
-    summary: "Group B’s wildest winged quattro in carbon black and volt, with working lights and a roof pod made for night stages.",
-    description: [
-      "The S1 E2 was Group B at full volume — a short-wheelbase quattro with a five-cylinder turbo, a towering rear wing and aero that changed rallying. Night Stage paints it carbon black with headlight-yellow chevrons and a working four-lamp light pod.",
-      "Scalextric’s inline chassis and magnet keep it composed on Sport track, while soft tires and a sprung guide make it forgiving for newer drivers.",
-      "Digital Plug Ready: fit a Scalextric digital chip and it races on ARC Pro and Digital layouts.",
-    ],
-    highlights: ["Working LED headlights & roof pod", "Inline drive with magnet", "Digital Plug Ready (DPR)", "Mud flaps, roof scoop & wing detail"],
-    specs: [
-      { label: "Scale", value: "1:32" },
-      { label: "Motor", value: "Short can, 18,000 rpm" },
-      { label: "Drivetrain", value: "Inline" },
-      { label: "Lights", value: "Front LEDs + light pod" },
-      { label: "Digital", value: "DPR socket" },
-      { label: "Length", value: "124 mm" },
-    ],
-    vehicle: { make: "Audi", model: "Sport quattro S1 E2", year: 1985, series: "Rally", era: "1980s", readyToRun: true, digital: false },
-    art: {
-      kind: "car",
-      body: "rally",
-      livery: { base: "#0b0b0f", secondary: "#ffd23f", accent: "#ff4b3a", pattern: "chevron", number: 6, numberPlate: "square", glass: "dark", rims: "white", headlights: "yellow" },
-    },
-    views: ["hero", "side", "rear", "top"],
-  },
-  // @@APPEND@@
 ]
+
+export const products: Product[] = [...core, ...extendedProducts]
